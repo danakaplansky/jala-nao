@@ -140,6 +140,44 @@
   }
   * { box-sizing: border-box; }
   body { margin: 0; }
+  html { scroll-behavior: smooth; }
+  .actions { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .btn {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 52px; padding: 10px 12px;
+    border-radius: 999px;
+    font-family: var(--mono); font-weight: 700; font-size: 12.5px; letter-spacing: .12em;
+    text-decoration: none; text-align: center; line-height: 1.25;
+    border: 1.5px solid var(--wine);
+  }
+  .btn-main { background: var(--wine); color: var(--cream); }
+  .btn-soft { background: var(--pink); color: var(--wine); }
+  .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .divider { width: 100%; display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+  .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--wine); opacity: .35; }
+  .divider span { font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: .32em; }
+  section { width: 100%; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 20px; }
+  h2 { font-family: var(--script); font-weight: 400; font-size: 58px; line-height: 1; margin: 0; }
+  .oven {
+    display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+  }
+  .oven div {
+    background: var(--pink); border: 1.5px solid var(--wine); border-radius: 50%;
+    width: 112px; height: 136px; display: grid; place-content: center; gap: 2px;
+  }
+  .oven b { font-family: var(--serif); font-weight: 600; font-size: 28px; font-variant-numeric: tabular-nums; }
+  .oven small { font-family: var(--mono); font-weight: 700; font-size: 10.5px; letter-spacing: .16em; }
+  .ingredients { list-style: none; margin: 0; padding: 0; text-align: left; font-family: var(--serif); font-size: 16px; }
+  .ingredients li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 2px; border-bottom: 1px dashed rgba(90, 15, 34, .3); }
+  .ingredients li span:last-child { font-family: var(--mono); font-size: 14px; text-align: right; }
+  .method { margin: 0; padding: 0; list-style: none; counter-reset: m; text-align: left; font-family: var(--serif); font-size: 16px; line-height: 1.45; display: grid; gap: 12px; }
+  .method li { counter-increment: m; display: grid; grid-template-columns: 30px 1fr; gap: 10px; }
+  .method li::before { content: counter(m); font-family: var(--mono); font-weight: 700; font-size: 14px; color: var(--cream); background: var(--wine); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; margin-top: 1px; }
+  .note { font-family: var(--mono); font-size: 13px; line-height: 1.5; margin: 0; opacity: .85; }
+  .wish { background: var(--blush); border-radius: 20px; padding: 26px 20px; gap: 12px; }
+  .wish p { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.5; margin: 0; }
+  .wish .big { font-size: 21px; }
+  .back { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; color: var(--wine); }
 </style>
 </head>
 <body>
@@ -149,6 +187,11 @@
   <p class="eyebrow">AMASADO DE JALÁ</p>
   <h1>Para Nao</h1>
   <p class="sub">Cómo trenzar la jalá de 4 tiras</p>
+
+  <nav class="actions" aria-label="Secciones">
+    <a class="btn btn-main" href="#receta">IR A LA RECETA</a>
+    <a class="btn btn-soft" href="#deseo">UN DESEO PARA NAO Y NACHO</a>
+  </nav>
 
   <div class="player">
     <video id="video" src="jala-nao.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
@@ -162,7 +205,51 @@
     <li><b>↻</b><span>Repetí hasta terminar las tiras y doblá las puntas hacia abajo.</span></li>
   </ol>
 
-  <p class="sign">CON AMOR Y BENDICIONES</p>
+  <div class="divider"><span>LA RECETA</span></div>
+
+  <section id="receta">
+    <h2>La receta</h2>
+    <div class="oven" aria-label="Horno">
+      <div><b>180°C</b><small>HORNO</small></div>
+      <div><b>20 min</b><small>APROX.</small></div>
+      <div><b>4</b><small>TRENZAS</small></div>
+    </div>
+
+    <ul class="ingredients">
+      <li><span>Harina 0000</span><span>1 kg (8 tazas)</span></li>
+      <li><span>Agua tibia</span><span>400 cc (1 y 2/3 tazas)</span></li>
+      <li><span>Azúcar</span><span>1 taza</span></li>
+      <li><span>Aceite de girasol</span><span>1/2 taza (125 cc)</span></li>
+      <li><span>Huevos</span><span>2</span></li>
+      <li><span>Levadura</span><span>50 g fresca o 10 g seca</span></li>
+      <li><span>Sal fina</span><span>1 cda. colmada (25 g)</span></li>
+      <li><span>Para decorar</span><span>1 huevo batido + sésamo o amapola</span></li>
+    </ul>
+
+    <ol class="method">
+      <li><span>Disolvé la levadura en el agua tibia.</span></li>
+      <li><span>En otro bowl mezclá los huevos, el azúcar, la sal y el aceite.</span></li>
+      <li><span>Poné la harina en un bowl grande y uní todo. Amasá hasta que la masa quede suave y lisa. Tapala y dejala reposar 20 minutos.</span></li>
+      <li><span>Cortá la masa en bollos de unos 100 g y estirá cada uno con las palmas hasta formar una tira de unos 30 cm.</span></li>
+      <li><span>Uní 4 tiras por una punta, con un poquito de agua para que se peguen, y trenzá como en el video. Al final uní las 4 puntas y doblalas debajo de la trenza.</span></li>
+      <li><span>Poné las trenzas en una placa aceitada, tapadas, en un lugar tibio, hasta que dupliquen su volumen.</span></li>
+      <li><span>Pintalas con huevo batido y espolvoreá sésamo o amapola.</span></li>
+      <li><span>Horno a 180°C unos 20 minutos, hasta que estén bien doradas.</span></li>
+    </ol>
+    <p class="note">Una taza = 250 cc. Con 1 kg de harina salen 4 trenzas.</p>
+  </section>
+
+  <div class="divider"><span>EL DESEO</span></div>
+
+  <section id="deseo" class="wish">
+    <h2>Para Nao y Nacho</h2>
+    <p>Hay una tradición hermosa: mientras amasamos, separamos un pedacito de masa y, en ese momento, pedimos por alguien que queremos.</p>
+    <p class="big">Hoy amasamos por Nao y Nacho. Que su casa tenga siempre pan en la mesa, amor en la cocina y gente querida alrededor.</p>
+    <p>Que cada trenza que hagan juntos sea así: cuatro tiras distintas que, cruzadas con paciencia, se vuelven una sola.</p>
+    <a class="back" href="#video">VOLVER AL VIDEO ↑</a>
+  </section>
+
+  <p class="sign">NOVIEMBRE 2026 · CON AMOR Y BENDICIONES</p>
 </main>
 
 </body>
