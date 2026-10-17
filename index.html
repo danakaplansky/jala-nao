@@ -206,14 +206,16 @@
     @keyframes fly { from { transform: translateY(40px) scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
   }
   .beraja { background: var(--cream); border: 1.5px solid var(--wine); border-radius: 20px; padding: 24px 18px; gap: 14px; text-align: left; }
-  .beraja h2 { text-align: center; }
   .beraja .he { text-align: right; }
-  .beraja .how { font-family: var(--serif); font-style: italic; font-size: 17px; line-height: 1.45; margin: 0; }
+  .beraja-box { width: 100%; display: grid; gap: 12px; margin-top: 10px; }
+  .beraja-box summary { list-style: none; cursor: pointer; }
+  .beraja-box summary::-webkit-details-marker { display: none; }
+  .beraja-box summary::after { content: " ↓"; white-space: pre; }
+  .beraja-box[open] summary::after { content: " ↑"; }
   .beraja .he { font-family: "Frank Ruhl Libre", "Times New Roman", serif; font-weight: 700; font-size: 25px; line-height: 1.7; margin: 0; direction: rtl; }
   .beraja .he small { display: block; font-weight: 500; font-size: 16px; opacity: .75; }
   .beraja .tr { font-family: var(--serif); font-weight: 600; font-size: 19px; line-height: 1.45; margin: 0; }
   .beraja .es { font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.45; margin: 0; opacity: .9; }
-  .beraja .amen { font-family: var(--mono); font-weight: 700; font-size: 13px; letter-spacing: .14em; line-height: 1.6; margin: 0; }
   .tip { background: var(--blush); border: 1.5px dashed var(--wine); border-radius: 16px; padding: 12px 16px; text-align: left; display: grid; gap: 4px; }
   .tip b { font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: .28em; }
   .tip span { font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.4; }
@@ -228,7 +230,6 @@
   <nav class="actions" aria-label="Secciones">
     <a class="btn btn-main" href="#dejar-deseo">DEJÁ TU DESEO</a>
     <a class="btn btn-soft" href="#receta">IR A LA RECETA</a>
-    <a class="btn btn-wide" href="#hafrasha">HAFRASHAT JALÁ · LA BERAJÁ</a>
   </nav>
 
   <p class="sub">Cómo trenzar la jalá de 4 tiras</p>
@@ -281,19 +282,6 @@
     <p class="note">Una taza = 250 cc. Con 1 kg de harina salen 4 trenzas.</p>
   </section>
 
-  <div class="divider"><span>LA BERAJÁ</span></div>
-
-  <section id="hafrasha" class="beraja">
-    <h2>Hafrashat jalá</h2>
-    <p class="how">Con el bollo ya listo, cada una saca un pedacito de su masa. Júntense con las dos o tres que tienen al lado, junten sus pedacitos y digan juntas:</p>
-    <p class="he" lang="he">בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר קִדְּשָׁנוּ בְּמִצְוֹתָיו, וְצִוָּנוּ לְהַפְרִישׁ חַלָּה תְּרוּמָה<small>(האשכנזים אומרים: חַלָּה מִן הָעִסָּה)</small></p>
-    <p class="tr">Baruj Atá A-do-nai, Elohéinu Mélej haolam, asher kideshanu bemitzvotav vetzivanu lehafrish jalá.</p>
-    <p class="es">Bendito eres Tú, A-do-nai, nuestro Di-s, Rey del universo, que nos ha santificado con Sus mandamientos y nos ha ordenado separar jalá.</p>
-    <p class="amen">HAREI ZU JALÁ · AMÉN</p>
-    <p class="how">Esos pedacitos son lo que dejamos afuera. Los juntamos todos en un solo bollo para dejarlos ir.</p>
-    <a class="back" href="#video">VOLVER AL VIDEO ↑</a>
-  </section>
-
   <div class="divider"><span>EL DESEO</span></div>
 
   <section id="deseo" class="wish">
@@ -315,6 +303,15 @@
     </form>
     <a class="back" href="#video">VOLVER AL VIDEO ↑</a>
   </section>
+
+  <details id="hafrasha" class="beraja-box">
+    <summary class="btn btn-wide">HAFRASHAT JALÁ · LA BERAJÁ</summary>
+    <section class="beraja">
+      <p class="he" lang="he">בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר קִדְּשָׁנוּ בְּמִצְוֹתָיו, וְצִוָּנוּ לְהַפְרִישׁ חַלָּה תְּרוּמָה<small>(האשכנזים אומרים: חַלָּה מִן הָעִסָּה)</small></p>
+      <p class="tr">Baruj Atá A-do-nai, Elohéinu Mélej haolam, asher kideshanu bemitzvotav vetzivanu lehafrish jalá.</p>
+      <p class="es">Bendito eres Tú, A-do-nai, nuestro Di-s, Rey del universo, que nos ha santificado con Sus mandamientos y nos ha ordenado separar jalá.</p>
+    </section>
+  </details>
 
   <p class="sign">NOVIEMBRE 2026 · CON AMOR Y BENDICIONES</p>
 </main>
