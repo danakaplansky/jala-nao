@@ -7,7 +7,7 @@
 <meta property="og:image" content="poster.jpg">
 <title>Amasado de jalá · Nao y Nacho</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,600;1,500&family=Courier+Prime:wght@400;700&family=Frank+Ruhl+Libre:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700&family=Pinyon+Script&family=Frank+Ruhl+Libre:wght@500;700&display=swap">
 <style>
   /* Layout: argyle "packaging" ground, one cream label card holding the video, wax seal on the corner. Single deliberate look. */
   :root {
@@ -17,9 +17,10 @@
     --blush: #F8D6DE;
     --cream: #F7EEE2;
     --gold: #C9A46A;
-    --script: "Pinyon Script", "Snell Roundhand", cursive;
-    --serif: "Playfair Display", Georgia, serif;
-    --mono: "Courier Prime", "Courier New", monospace;
+    --script: "Snell Roundhand", "Pinyon Script", cursive;
+    --display: "Didot", "Bodoni Moda", "Bodoni 72", serif;
+    --serif: "Futura", "Jost", "Century Gothic", sans-serif;
+    --mono: "Futura", "Jost", "Century Gothic", sans-serif;
     color-scheme: light;
   }
   html, body { min-height: 100%; }
@@ -66,17 +67,13 @@
     margin: 6px 0 0;
   }
   h1 {
-    font-family: var(--script);
-    font-weight: 400;
-    font-size: clamp(64px, 18vw, 92px);
-    line-height: .9;
-    margin: 0;
-    text-wrap: balance;
+    font-size: clamp(54px, 15vw, 76px);
+    margin: 4px 0 0;
   }
   .sub {
     margin-top: 6px !important;
     font-family: var(--serif);
-    font-style: italic;
+    font-style: normal;
     font-weight: 500;
     font-size: 19px;
     margin: -6px 0 0;
@@ -148,7 +145,7 @@
     display: flex; align-items: center; justify-content: center;
     min-height: 52px; padding: 10px 12px;
     border-radius: 999px;
-    font-family: var(--mono); font-weight: 700; font-size: 12.5px; letter-spacing: .12em;
+    font-family: var(--mono); font-weight: 500; font-size: 12.5px; letter-spacing: .12em;
     text-decoration: none; text-align: center; line-height: 1.25;
     border: 1.5px solid var(--wine);
   }
@@ -158,9 +155,9 @@
   .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
   .divider { width: 100%; display: flex; align-items: center; gap: 12px; margin-top: 10px; }
   .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--wine); opacity: .35; }
-  .divider span { font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: .32em; }
+  .divider span { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .32em; }
   section { width: 100%; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 20px; }
-  h2 { font-family: var(--script); font-weight: 400; font-size: 58px; line-height: 1; margin: 0; }
+  h2 { font-size: 46px; margin: 0; }
   .oven {
     display: flex; justify-content: center; gap: 8px;
   }
@@ -168,22 +165,22 @@
     background: var(--pink); border: 1.5px solid var(--wine); border-radius: 50%;
     width: 88px; height: 110px; display: grid; place-content: center; gap: 2px;
   }
-  .oven b { font-family: var(--serif); font-weight: 600; font-size: 22px; font-variant-numeric: tabular-nums; }
-  .oven small { font-family: var(--mono); font-weight: 700; font-size: 9.5px; letter-spacing: .14em; }
+  .oven b { font-family: var(--display); font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums; }
+  .oven small { font-family: var(--mono); font-weight: 500; font-size: 9.5px; letter-spacing: .14em; }
   .ingredients { list-style: none; margin: 0; padding: 0; text-align: left; font-family: var(--serif); font-size: 16px; }
   .ingredients li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 2px; border-bottom: 1px dashed rgba(90, 15, 34, .3); }
   .ingredients li span:last-child { font-family: var(--mono); font-size: 14px; text-align: right; }
   .method { margin: 0; padding: 0; list-style: none; counter-reset: m; text-align: left; font-family: var(--serif); font-size: 16px; line-height: 1.45; display: grid; gap: 12px; }
   .method li { counter-increment: m; display: grid; grid-template-columns: 30px 1fr; gap: 10px; }
-  .method li::before { content: counter(m); font-family: var(--mono); font-weight: 700; font-size: 14px; color: var(--cream); background: var(--wine); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; margin-top: 1px; }
+  .method li::before { content: counter(m); font-family: var(--mono); font-weight: 500; font-size: 14px; color: var(--cream); background: var(--wine); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; margin-top: 1px; }
   .note { font-family: var(--mono); font-size: 13px; line-height: 1.5; margin: 0; opacity: .85; }
-  .wish { background: var(--blush); border-radius: 20px; padding: 26px 20px; gap: 12px; }
-  .wish p { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.5; margin: 0; }
+  .wish { --halo: var(--blush); background: var(--blush); border-radius: 20px; padding: 26px 20px; gap: 12px; }
+  .wish p { font-family: var(--serif); font-style: normal; font-size: 18px; line-height: 1.5; margin: 0; }
   .wish .big { font-size: 21px; }
   .back { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; color: var(--wine); }
   .form { display: grid; gap: 10px; text-align: left; margin-top: 8px; scroll-margin-top: 20px; }
-  .form h3 { margin: 6px 0 0; font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: .28em; text-align: center; }
-  .form label { font-family: var(--mono); font-weight: 700; font-size: 11px; letter-spacing: .16em; }
+  .form h3 { margin: 6px 0 0; font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .28em; text-align: center; }
+  .form label { font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .16em; }
   .form input, .form textarea {
     width: 100%; font: inherit; font-family: var(--serif); font-size: 17px; color: var(--wine);
     background: var(--cream); border: 1.5px solid var(--wine); border-radius: 14px; padding: 11px 13px;
@@ -191,7 +188,7 @@
   .form textarea { min-height: 96px; resize: vertical; }
   .form input:focus-visible, .form textarea:focus-visible { outline: 3px solid var(--gold); outline-offset: 1px; }
   .form button { cursor: pointer; width: 100%; }
-  .form .status { font-family: var(--serif); font-style: italic; font-size: 16px; text-align: center; margin: 0; min-height: 1.4em; }
+  .form .status { font-family: var(--serif); font-style: normal; font-size: 16px; text-align: center; margin: 0; min-height: 1.4em; }
   .form .chars { font-family: var(--mono); font-size: 11px; text-align: right; opacity: .7; margin-top: -6px; }
   .mine {
     justify-self: center; width: 200px; aspect-ratio: 5 / 6; background: var(--pink);
@@ -199,8 +196,8 @@
     display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px;
     padding: 26px; text-align: center; box-shadow: inset -10px -14px 22px rgba(59, 8, 21, .16);
   }
-  .mine .w { font-family: var(--serif); font-style: italic; font-size: 15px; line-height: 1.3; overflow-wrap: anywhere; }
-  .mine .n { font-family: var(--mono); font-weight: 700; font-size: 11px; letter-spacing: .16em; }
+  .mine .w { font-family: var(--serif); font-style: normal; font-size: 15px; line-height: 1.3; overflow-wrap: anywhere; }
+  .mine .n { font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .16em; }
   @media (prefers-reduced-motion: no-preference) {
     .mine { animation: fly 1.2s cubic-bezier(.3,1.4,.5,1) both; }
     @keyframes fly { from { transform: translateY(40px) scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
@@ -215,10 +212,13 @@
   .beraja .he { font-family: "Frank Ruhl Libre", "Times New Roman", serif; font-weight: 700; font-size: 25px; line-height: 1.7; margin: 0; direction: rtl; }
   .beraja .he small { display: block; font-weight: 500; font-size: 16px; opacity: .75; }
   .beraja .tr { font-family: var(--serif); font-weight: 600; font-size: 19px; line-height: 1.45; margin: 0; }
-  .beraja .es { font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.45; margin: 0; opacity: .9; }
+  .beraja .es { font-family: var(--serif); font-style: normal; font-size: 16px; line-height: 1.45; margin: 0; opacity: .9; }
   .tip { background: var(--blush); border: 1.5px dashed var(--wine); border-radius: 16px; padding: 12px 16px; text-align: left; display: grid; gap: 4px; }
-  .tip b { font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: .28em; }
-  .tip span { font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.4; }
+  .tip b { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .28em; }
+  .tip span { font-family: var(--serif); font-style: normal; font-size: 16px; line-height: 1.4; }
+  .ttl { display: flex; flex-direction: column; align-items: center; margin: 0; line-height: .86; font-weight: 400; }
+  .ttl span { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; display: inline-block; transform: scaleX(.78); }
+  .ttl em { font-family: var(--script); font-style: normal; font-weight: 700; transform: rotate(-6deg); margin: -.18em 0; position: relative; z-index: 1; text-shadow: 0 0 6px var(--halo, var(--cream)), 0 0 3px var(--halo, var(--cream)); }
 </style>
 </head>
 <body>
@@ -226,7 +226,7 @@
 <main class="label">
   <div class="seal" aria-hidden="true">N</div>
   <p class="eyebrow">AMASADO DE JALÁ</p>
-  <h1>Nao y Nacho</h1>
+  <h1 class="ttl"><span>Nao</span><em>y</em><span>Nacho</span></h1>
   <nav class="actions" aria-label="Secciones">
     <a class="btn btn-main" href="#dejar-deseo">DEJÁ TU DESEO</a>
     <a class="btn btn-soft" href="#receta">IR A LA RECETA</a>
@@ -249,7 +249,7 @@
   <div class="divider"><span>LA RECETA</span></div>
 
   <section id="receta">
-    <h2>La receta</h2>
+    <h2 class="ttl"><em>la</em><span>Receta</span></h2>
     <div class="oven" aria-label="Horno">
       <div><b>180°C</b><small>HORNO</small></div>
       <div><b>20 min</b><small>APROX.</small></div>
@@ -288,7 +288,7 @@
   <div class="divider"><span>EL DESEO</span></div>
 
   <section id="deseo" class="wish">
-    <h2>Para Nao y Nacho</h2>
+    <h2 class="ttl"><em>para</em><span>Nao y Nacho</span></h2>
     <p>Hay una tradición hermosa: mientras amasamos, separamos un pedacito de masa y, en ese momento, pedimos por alguien que queremos.</p>
     <p class="big">Hoy amasamos por Nao y Nacho. Que su casa tenga siempre pan en la mesa, amor en la cocina y gente querida alrededor.</p>
     <p>Que cada trenza que hagan juntos sea así: cuatro tiras distintas que, cruzadas con paciencia, se vuelven una sola.</p>
