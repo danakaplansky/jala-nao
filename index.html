@@ -74,6 +74,7 @@
     text-wrap: balance;
   }
   .sub {
+    margin-top: 6px !important;
     font-family: var(--serif);
     font-style: italic;
     font-weight: 500;
@@ -142,7 +143,7 @@
   [hidden] { display: none !important; }
   body { margin: 0; }
   html { scroll-behavior: smooth; }
-  .actions { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .actions { width: 100%; display: grid; grid-template-columns: 1fr; gap: 10px; }
   .btn {
     display: flex; align-items: center; justify-content: center;
     min-height: 52px; padding: 10px 12px;
@@ -212,13 +213,12 @@
   <div class="seal" aria-hidden="true">N</div>
   <p class="eyebrow">AMASADO DE JALÁ</p>
   <h1>Para Nao</h1>
-  <p class="sub">Cómo trenzar la jalá de 4 tiras</p>
-
   <nav class="actions" aria-label="Secciones">
-    <a class="btn btn-main" href="#receta">IR A LA RECETA</a>
-    <a class="btn btn-soft" href="#dejar-deseo">DEJÁ TU DESEO</a>
-    <a class="btn btn-wide" href="deseos.html">VER LOS DESEOS PARA NAO Y NACHO</a>
+    <a class="btn btn-main" href="#dejar-deseo">DEJÁ TU DESEO</a>
+    <a class="btn btn-soft" href="#receta">IR A LA RECETA</a>
   </nav>
+
+  <p class="sub">Cómo trenzar la jalá de 4 tiras</p>
 
   <div class="player">
     <video id="video" src="jala-nao.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
