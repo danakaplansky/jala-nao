@@ -74,7 +74,7 @@
     @keyframes stick { from { transform: rotate(var(--r, 0deg)) scale(1.35); opacity: 0; } to { transform: rotate(var(--r, 0deg)) scale(1); opacity: 1; } }
   }
 
-  .empty { text-align: center; color: var(--cream); font-style: normal; font-size: 22px; margin: 40px auto; max-width: 320px; }
+  .empty { text-align: center; color: var(--wine); background: var(--cream); border-radius: 18px; padding: 16px 20px; font-style: normal; font-size: 22px; margin: 40px auto; max-width: 320px; }
 
   .join {
     position: fixed; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 6;
@@ -88,15 +88,15 @@
   }
   .jbtn.main { background: var(--pink); }
   .jbtn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
-  .ttl { display: flex; flex-direction: column; align-items: center; margin: 0; line-height: .86; font-weight: 400; }
-  .ttl span { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; display: inline-block; transform: scaleX(.78); }
-  .ttl em { font-family: var(--script); font-style: normal; font-weight: 700; font-size: .5em; transform: rotate(-6deg); margin: -.22em 0; position: relative; z-index: 1; text-shadow: 0 0 6px var(--halo, var(--cream)), 0 0 3px var(--halo, var(--cream)); }
+  .ttl { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 0; line-height: .95; font-weight: 400; }
+  .ttl span { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .02em; display: block; }
+  .ttl em { font-family: var(--script); font-style: normal; font-weight: 700; font-size: .42em; line-height: 1; display: block; margin: .05em 0 .1em; }
 </style>
 </head>
 <body>
 <header>
   <div class="title">
-    <p>AMASADO DE JALÁ · NOVIEMBRE 2026</p>
+    <p>AMASADO DE JALÁ</p>
     <h1 class="ttl"><span>Deseos</span><em>para</em><span>Nao y Nacho</span></h1>
     <div class="count" id="count"></div>
   </div>
