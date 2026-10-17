@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:title" content="Jalá para Nao">
+<meta property="og:image" content="poster.jpg">
+<title>Jalá para Nao</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,600;1,500&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+  /* Layout: argyle "packaging" ground, one cream label card holding the video, wax seal on the corner. Single deliberate look. */
+  :root {
+    --wine: #5A0F22;
+    --deep: #3B0815;
+    --pink: #F0A9BB;
+    --blush: #F8D6DE;
+    --cream: #F7EEE2;
+    --gold: #C9A46A;
+    --script: "Pinyon Script", "Snell Roundhand", cursive;
+    --serif: "Playfair Display", Georgia, serif;
+    --mono: "Courier Prime", "Courier New", monospace;
+    color-scheme: light;
+  }
+  html, body { min-height: 100%; }
+  body {
+    background-color: var(--wine);
+    background-image:
+      linear-gradient(45deg, var(--pink) 25%, transparent 25%, transparent 75%, var(--pink) 75%),
+      linear-gradient(45deg, var(--pink) 25%, transparent 25%, transparent 75%, var(--pink) 75%);
+    background-size: 84px 84px;
+    background-position: 0 0, 42px 42px;
+    color: var(--wine);
+    padding: 40px 16px 56px;
+    display: flex;
+    justify-content: center;
+  }
+  .label {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    background: var(--cream);
+    border-radius: 28px;
+    padding: 28px 22px 30px;
+    box-shadow: 0 24px 50px rgba(30, 3, 9, .35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+  .label::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1.5px solid var(--wine);
+    border-radius: 20px;
+    opacity: .45;
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .32em;
+    margin: 6px 0 0;
+  }
+  h1 {
+    font-family: var(--script);
+    font-weight: 400;
+    font-size: clamp(64px, 18vw, 92px);
+    line-height: .9;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 19px;
+    margin: -6px 0 0;
+  }
+  .player {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 9 / 16;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--deep);
+    box-shadow: 0 10px 24px rgba(59, 8, 21, .3);
+  }
+  video { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .steps {
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    text-align: left;
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.35;
+  }
+  .steps li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: center; }
+  .steps b {
+    display: grid; place-items: center;
+    width: 34px; height: 42px;
+    border-radius: 50%;
+    background: var(--pink);
+    border: 1.5px solid var(--wine);
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .steps span { min-width: 0; }
+  .sign {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: .14em;
+    margin: 6px 0 0;
+  }
+  .seal {
+    position: absolute;
+    right: -14px;
+    top: -18px;
+    width: 76px; height: 76px;
+    border-radius: 47% 53% 50% 50% / 52% 48% 52% 48%;
+    background: radial-gradient(circle at 38% 35%, #A5263F, #7E162C 60%, #5E0F21);
+    box-shadow: 0 8px 16px rgba(30, 3, 9, .35), inset 0 0 0 7px rgba(0,0,0,.12);
+    display: grid; place-items: center;
+    font-family: var(--script);
+    font-size: 46px;
+    color: var(--gold);
+    transform: rotate(-8deg);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .seal { animation: stamp .6s cubic-bezier(.3,1.6,.5,1) .3s both; }
+    @keyframes stamp { from { transform: scale(1.5) rotate(-8deg); } to { transform: scale(1) rotate(-8deg); } }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+</style>
+</head>
+<body>
+
+<main class="label">
+  <div class="seal" aria-hidden="true">N</div>
+  <p class="eyebrow">AMASADO DE JALÁ</p>
+  <h1>Para Nao</h1>
+  <p class="sub">Cómo trenzar la jalá de 4 tiras</p>
+
+  <div class="player">
+    <video id="video" src="jala-nao.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
+  </div>
+
+  <ol class="steps">
+    <li><b>1</b><span>La de arriba a la izquierda baja hacia la derecha.</span></li>
+    <li><b>2</b><span>La del medio sube a la izquierda.</span></li>
+    <li><b>3</b><span>La de arriba a la derecha baja hacia la izquierda.</span></li>
+    <li><b>4</b><span>La del medio sube a la derecha.</span></li>
+    <li><b>↻</b><span>Repetí hasta terminar las tiras y doblá las puntas hacia abajo.</span></li>
+  </ol>
+
+  <p class="sign">CON AMOR Y BENDICIONES</p>
+</main>
+
+</body>
+</html>
