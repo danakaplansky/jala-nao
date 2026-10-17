@@ -217,6 +217,8 @@
   .ttl em { font-family: var(--script); font-style: normal; font-weight: 700; font-size: .42em; line-height: 1; display: block; margin: .05em 0 .1em; }
   .logo { width: 72px; height: auto; display: block; margin: 2px auto 0; }
   h1.names { font-family: var(--mono); font-weight: 500; font-size: 22px; letter-spacing: .3em; margin: 0 0 0 .3em; line-height: 1.2; white-space: nowrap; }
+  h2.names.sec { font-size: 17px; text-align: center; margin: 0 0 0 .3em; white-space: normal; }
+  .wish .big { text-align: center; }
 </style>
 </head>
 <body>
@@ -287,16 +289,14 @@
   <div class="divider"><span>EL DESEO</span></div>
 
   <section id="deseo" class="wish">
-    <h2 class="ttl"><em>para</em><span>Nao y Nacho</span></h2>
-    <p>Hay una tradición hermosa: mientras amasamos, separamos un pedacito de masa y, en ese momento, pedimos por alguien que queremos.</p>
-    <p class="big">Hoy amasamos por Nao y Nacho. Que su casa tenga siempre pan en la mesa, amor en la cocina y gente querida alrededor.</p>
-    <p>Que cada trenza que hagan juntos sea así: cuatro tiras distintas que, cruzadas con paciencia, se vuelven una sola.</p>
+    <h2 class="names sec">PARA NAO Y NACHO</h2>
+    <p class="big">Como los ingredientes de la jalá: ¿cuáles son los ingredientes infaltables para esta nueva etapa?</p>
     <form class="form" id="dejar-deseo" novalidate>
       <h3>DEJÁ TU DESEO</h3>
       <label for="nombre">TU NOMBRE</label>
       <input id="nombre" name="nombre" maxlength="40" autocomplete="given-name" placeholder="Sofi">
       <label for="texto">TU DESEO PARA NAO Y NACHO</label>
-      <textarea id="texto" name="texto" maxlength="160" placeholder="Que su casa siempre tenga…"></textarea>
+      <textarea id="texto" name="texto" maxlength="160" placeholder="Paciencia, risas y mucho amor…"></textarea>
       <div class="chars" id="chars">0 / 160</div>
       <button class="btn btn-main" type="submit" id="enviar">ENVIAR MI DESEO</button>
       <p class="status" id="status" role="status"></p>
