@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Deseos para Nao y Nacho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@1,500&family=Courier+Prime:wght@700&display=swap">
+<style>
+  /* Pantalla para tele/proyector: rombos de fondo, globos que suben, el deseo nuevo aparece grande al centro. */
+  :root {
+    --wine: #5A0F22; --deep: #3B0815; --pink: #F0A9BB; --blush: #F8D6DE; --cream: #F7EEE2; --gold: #C9A46A;
+    --script: "Pinyon Script", "Snell Roundhand", cursive;
+    --serif: "Playfair Display", Georgia, serif;
+    --mono: "Courier Prime", "Courier New", monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; overflow: hidden; }
+  body {
+    background-color: var(--wine);
+    background-image:
+      linear-gradient(45deg, #6B1529 25%, transparent 25%, transparent 75%, #6B1529 75%),
+      linear-gradient(45deg, #6B1529 25%, transparent 25%, transparent 75%, #6B1529 75%);
+    background-size: 120px 120px;
+    background-position: 0 0, 60px 60px;
+    color: var(--wine);
+    font-family: var(--serif);
+  }
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 5;
+    display: flex; justify-content: center; padding: max(2.5vh, 16px) 16px 0;
+    pointer-events: none;
+  }
+  .title {
+    background: var(--cream); border-radius: 22px; padding: 1.2vh 3.2vw 1.6vh;
+    text-align: center; box-shadow: 0 16px 40px rgba(30, 3, 9, .45);
+    position: relative;
+  }
+  .title::before { content: ""; position: absolute; inset: 8px; border: 1.5px solid var(--wine); border-radius: 15px; opacity: .45; }
+  .title p { margin: 0; font-family: var(--mono); font-weight: 700; letter-spacing: .3em; font-size: clamp(10px, 1.2vw, 18px); }
+  .title h1 { margin: 0; font-family: var(--script); font-weight: 400; font-size: clamp(40px, 5.6vw, 96px); line-height: 1.05; }
+
+  #sky { position: fixed; inset: 0; }
+  .balloon {
+    position: absolute; bottom: -40vh;
+    width: clamp(170px, 17vw, 300px);
+    animation: rise linear infinite;
+    will-change: transform;
+  }
+  .balloon .body {
+    border-radius: 50% 50% 48% 48% / 56% 56% 44% 44%;
+    aspect-ratio: 5 / 6;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6%;
+    padding: 14% 13%;
+    text-align: center;
+    box-shadow: inset -14px -18px 30px rgba(59, 8, 21, .18), 0 16px 30px rgba(30, 3, 9, .35);
+    position: relative;
+  }
+  .balloon .body::after { /* brillo */
+    content: ""; position: absolute; top: 12%; left: 20%; width: 18%; height: 12%;
+    border-radius: 50%; background: #fff; opacity: .35; transform: rotate(-30deg);
+  }
+  .balloon .knot { width: 16px; height: 12px; margin: -2px auto 0; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+  .balloon .string { width: 2px; height: 70px; margin: 0 auto; background: rgba(247, 238, 226, .55); }
+  .balloon .wish { font-style: italic; font-weight: 500; line-height: 1.25; font-size: clamp(13px, 1.15vw, 21px); overflow-wrap: anywhere; }
+  .balloon .who { font-family: var(--mono); font-weight: 700; letter-spacing: .18em; font-size: clamp(9px, .8vw, 14px); }
+  .c1 .body { background: var(--pink); } .c1 .knot { background: var(--pink); }
+  .c2 .body { background: var(--cream); } .c2 .knot { background: var(--cream); }
+  .c3 .body { background: #8E1B32; color: var(--cream); } .c3 .knot { background: #8E1B32; }
+  .c3 .who { color: var(--gold); }
+  @keyframes rise {
+    0% { transform: translate(0, 0) rotate(-3deg); }
+    25% { transform: translate(18px, -38vh) rotate(3deg); }
+    50% { transform: translate(-14px, -76vh) rotate(-2deg); }
+    75% { transform: translate(16px, -114vh) rotate(3deg); }
+    100% { transform: translate(0, -160vh) rotate(-3deg); }
+  }
+
+  #spot {
+    position: fixed; inset: 0; z-index: 10; display: grid; place-items: center;
+    background: rgba(59, 8, 21, .55); padding: 16px;
+    opacity: 0; pointer-events: none; transition: opacity .5s;
+  }
+  #spot.on { opacity: 1; }
+  .card {
+    background: var(--cream); border-radius: 50%; width: min(64vh, 86vw); aspect-ratio: 5 / 6;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2.4vh;
+    padding: 10%; text-align: center; position: relative;
+    box-shadow: 0 30px 80px rgba(30, 3, 9, .6);
+    transform: scale(.6); transition: transform .6s cubic-bezier(.3, 1.5, .5, 1);
+  }
+  #spot.on .card { transform: scale(1); }
+  .card::before { content: ""; position: absolute; inset: 14px; border: 2px solid var(--wine); border-radius: 50%; opacity: .5; }
+  .card .tag { font-family: var(--mono); font-weight: 700; letter-spacing: .3em; font-size: clamp(11px, 1.5vh, 18px); }
+  .card .wish { font-style: italic; font-weight: 500; font-size: clamp(20px, 3.6vh, 44px); line-height: 1.3; overflow-wrap: anywhere; }
+  .card .who { font-family: var(--script); font-size: clamp(34px, 6vh, 74px); line-height: 1; }
+
+  .join {
+    position: fixed; right: max(2vw, 16px); bottom: max(2.5vh, 16px); z-index: 6;
+    background: var(--cream); border-radius: 18px; padding: 12px; width: clamp(120px, 11vw, 200px);
+    text-align: center; box-shadow: 0 16px 40px rgba(30, 3, 9, .45);
+  }
+  .join img { display: block; width: 100%; }
+  .join p { margin: 6px 0 0; font-family: var(--mono); font-weight: 700; letter-spacing: .14em; font-size: clamp(9px, .75vw, 13px); }
+  .count { position: fixed; left: max(2vw, 16px); bottom: max(2.5vh, 16px); z-index: 6; font-family: var(--mono); font-weight: 700; letter-spacing: .2em; color: var(--cream); font-size: clamp(11px, 1vw, 16px); }
+  .empty { position: fixed; inset: 0; display: grid; place-items: center; color: var(--cream); font-style: italic; font-size: clamp(20px, 2.4vw, 38px); text-align: center; padding: 16px; }
+  @media (prefers-reduced-motion: reduce) { .balloon { animation-duration: 120s !important; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="title">
+    <p>AMASADO DE JALÁ · NOVIEMBRE 2026</p>
+    <h1>Deseos para Nao y Nacho</h1>
+  </div>
+</header>
+
+<div id="sky" aria-live="polite"></div>
+<div class="empty" id="empty">Escaneá el código y dejá el primer deseo.</div>
+
+<div id="spot" aria-hidden="true">
+  <div class="card">
+    <span class="tag">NUEVO DESEO</span>
+    <span class="wish" id="spotWish"></span>
+    <span class="who" id="spotWho"></span>
+  </div>
+</div>
+
+<div class="join">
+  <img src="qr-deseo.png" alt="Código QR para dejar un deseo">
+  <p>DEJÁ TU DESEO</p>
+</div>
+<div class="count" id="count"></div>
+
+<script src="deseos-config.js"></script>
+<script>
+(() => {
+  const sky = document.getElementById('sky');
+  const seen = new Map();
+  const queue = [];
+  let first = true, showing = false;
+  const lanes = 6;
+
+  function rand(seed) { let x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x); }
+
+  function addBalloon(w, idx, fresh) {
+    const el = document.createElement('div');
+    el.className = 'balloon c' + (1 + (idx % 3));
+    const lane = idx % lanes;
+    const left = 4 + lane * (88 / lanes) + rand(idx) * 6;
+    const dur = 26 + rand(idx + 7) * 14;
+    el.style.left = left + 'vw';
+    el.style.animationDuration = dur + 's';
+    el.style.animationDelay = fresh ? '0s' : (-rand(idx + 3) * dur) + 's';
+    const body = document.createElement('div'); body.className = 'body';
+    const wish = document.createElement('span'); wish.className = 'wish'; wish.textContent = '“' + w.d + '”';
+    const who = document.createElement('span'); who.className = 'who'; who.textContent = (w.n || 'ANÓNIMO').toUpperCase();
+    body.append(wish, who);
+    const knot = document.createElement('div'); knot.className = 'knot';
+    const string = document.createElement('div'); string.className = 'string';
+    el.append(body, knot, string);
+    sky.appendChild(el);
+    seen.set(w.id, el);
+  }
+
+  function spotlight() {
+    if (showing || !queue.length) return;
+    showing = true;
+    const w = queue.shift();
+    document.getElementById('spotWish').textContent = '“' + w.d + '”';
+    document.getElementById('spotWho').textContent = w.n || 'Anónimo';
+    const spot = document.getElementById('spot');
+    spot.classList.add('on');
+    setTimeout(() => {
+      spot.classList.remove('on');
+      addBalloon(w, seen.size, true);
+      setTimeout(() => { showing = false; spotlight(); }, 700);
+    }, 6000);
+  }
+
+  function render(list) {
+    document.getElementById('empty').hidden = list.length > 0;
+    document.getElementById('count').textContent = list.length ? list.length + (list.length === 1 ? ' DESEO' : ' DESEOS') : '';
+    const ids = new Set(list.map((w) => w.id));
+    for (const [id, el] of seen) if (!ids.has(id)) { el.remove(); seen.delete(id); } // ocultado desde la planilla
+    list.forEach((w) => {
+      if (seen.has(w.id) || queue.some((q) => q.id === w.id)) return;
+      if (first) addBalloon(w, seen.size, false); else queue.push(w);
+    });
+    first = false;
+    spotlight();
+  }
+
+  async function poll() {
+    if (!window.DESEOS_ENDPOINT) return;
+    try {
+      const r = await fetch(window.DESEOS_ENDPOINT + '?t=' + Date.now());
+      render(await r.json());
+    } catch (e) { /* sin red: reintenta en el próximo ciclo */ }
+  }
+  poll();
+  setInterval(poll, 5000);
+})();
+</script>
+</body>
+</html>
